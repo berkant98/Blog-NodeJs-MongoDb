@@ -26,13 +26,20 @@
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="content" type="text" placeholder="Your Content *"
-                                    required="required"
-                                    data-validation-required-message="Please enter your content." cols="30" rows="10"></textarea>
+                                    required="required" data-validation-required-message="Please enter your content."
+                                    cols="30" rows="10"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" name="post_image" type="file"
-                                    required="required">
+                                <select class="form-control" name="category">
+                                    {{#each categories}}
+                                    <option value="{{_id}}">{{name}}</option>
+                                    {{/each}}
+                                </select>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" name="post_image" type="file" required="required">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>

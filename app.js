@@ -26,7 +26,6 @@ app.use(expressSession({
     store: MongoStore.create({ mongoUrl: 'mongodb://localhost/nodeblog_db' })
 }))
 
-
 //flash - message MiddleWare
 
 app.use((req, res, next) => {
@@ -75,11 +74,13 @@ app.use((req, res, next) => {
 })
 
 const main = require('./routes/main');
+const api = require('./routes/api');
 const posts = require('./routes/posts');
 const users = require('./routes/users');
 const admin = require('./routes/admin/index');
 
 app.use('/', main)
+app.use('/api', api)
 app.use('/posts', posts)
 app.use('/users', users)
 app.use('/admin', admin)

@@ -16,7 +16,9 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
     Post.findById(req.params.id).populate({ path: 'author', model: User }).lean().then(post => {
         Category.find({}).sort({ $natural: -1 }).lean().then(categories => {
-            res.render('site/post', { post: post, categories: categories });
+            Post.find({}).sort({ $natural: -1 }).lean().then(posts => {
+                res.render('site/post', { post: post, categories: categories, posts: posts });
+            })
         })
     })
     console.log(req.params);

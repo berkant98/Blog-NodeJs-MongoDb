@@ -7,9 +7,11 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload')
 const generateDate = require('./helpers/generateDate').generateDate;
+const limit = require('./helpers/limit').limit;
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
 const methodOverride = require('method-override');
+
 mongoose.connect('mongodb://127.0.0.1/nodeblog_db', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -39,7 +41,15 @@ app.use(express.static('public'))
 
 app.use(methodOverride('_method'))
 
-app.engine('handlebars', exphbs({ helpers: { generateDate: generateDate } }));
+// handlebars helpers
+
+const hbs = exphbs.create({
+    helpers: {
+        generateDate: generateDate,
+        limit: limit
+    }
+})
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // parse application/x-www-form-urlencoded

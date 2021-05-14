@@ -13,7 +13,7 @@
                 <div class="{{sessionFlash.type}}">{{sessionFlash.message}}</div>
                 {{/if}}
                 <div class="row">
-                    {{#each myPosts}}
+                    {{#each posts}}
                     <div class="col-md-6">
                         <div class="blog">
                             <div class="blog-img">
@@ -22,8 +22,10 @@
                             <div class="blog-content">
                                 <ul class="blog-meta">
                                     <li><i class="fas fa-users"></i><span class="writer">{{author.username}}</span></li>
-                                    <li><i class="fas fa-clock"></i><span class="writer">{{generateDate date 'MMM DD
-                                            YYYY'}}</span></li>
+                                    <li>
+                                        <i class="fas fa-clock"></i>
+                                        <span class="writer">{{generateDate date 'MMM DD YYYY'}}</span>
+                                    </li>
                                     <li><i class="fas fa-comments"></i><span class="writer">13</span></li>
                                 </ul>
                                 <h3>{{title}}</h3>
@@ -48,68 +50,7 @@
                     </nav>
                 </div>
             </main>
-
-            <aside id="aside" class="col-md-4">
-
-                <div class="widget">
-                    <div class="widget-search">
-                        <input class="search-input form-control" type="text" placeholder="Search">
-                        <button class="search-btn" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-                <!-- /Search -->
-
-
-                <!-- Category -->
-                {{>site-sidebar}}
-                <!-- /Category -->
-
-                <!-- Posts sidebar -->
-                <div class="widget">
-                    <h3 class="mb-3">Latest Posts</h3>
-
-                    <!-- single post -->
-                    <div class="widget-post">
-                        <a href="#">
-                            <img class="img-fluid" src="./img/post1.jpg" alt="">Lorem Ipsum
-                        </a>
-                        <ul class="blog-meta">
-                            <li>Oct 18, 2017</li>
-                        </ul>
-                    </div>
-                    <!-- /single post -->
-
-                    <!-- single post -->
-                    <div class="widget-post">
-                        <a href="#">
-                            <img src="./img/post2.jpg" alt="">Lorem Ipsum
-                        </a>
-                        <ul class="blog-meta">
-                            <li>Oct 18, 2017</li>
-                        </ul>
-                    </div>
-                    <!-- /single post -->
-
-
-                    <!-- single post -->
-                    <div class="widget-post">
-                        <a href="#">
-                            <img src="./img/post3.jpg" alt="">Lorem Ipsum
-                        </a>
-                        <ul class="blog-meta">
-                            <li>Oct 18, 2017</li>
-                        </ul>
-                    </div>
-                    <!-- /single post -->
-
-                </div>
-                <!-- /Posts sidebar -->
-
-            </aside>
-
-
-
+            {{>site-sidebar}}
         </div>
-
     </div>
 </section>

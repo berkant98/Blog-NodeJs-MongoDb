@@ -728,7 +728,7 @@ BLOG SECTION
     display: block;
     float: left;
     width: 85px;
-    height: auto;
+    max-height: 56px;
     margin-right: 10px;
     margin-top: 5px;
 }

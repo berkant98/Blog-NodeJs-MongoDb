@@ -21,7 +21,6 @@ router.get('/:id', (req, res) => {
             })
         })
     })
-    console.log(req.params);
 })
 
 router.post('/test', (req, res) => {
